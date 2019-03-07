@@ -7,6 +7,20 @@ sortedTriples n = [(x,y,z) | x<-[1..n], y<-[x..n], z<-[y..n]]
 triads :: Int -> [(Int, Int, Int)]
 triads n = [(x,y,z) | (x,y,z) <- (sortedTriples n), (x * x) + (y * y) == z * z]
 
+isPrime :: Int -> Bool
+isPrime n
+  | n < 2 = False
+  | otherwise = foldl (\acc el -> acc && (mod n el /= 0)) True [2..(n-1)] -- could use sqrt here but whatever idc
+
+my_fib :: Int -> Int
+my_fib n
+  | otherwise = fib_downto n 0 1
+
+fib_downto :: Int -> Int -> Int -> Int -- is tail recursive!
+fib_downto lim p q
+  | lim < 1 = q
+  | otherwise = fib_downto (lim - 1) q (p + q)
+
 indexOf :: Char -> String -> Maybe Int
 indexOf _ "" = Nothing
 indexOf ch (hd : tl) = if ch == hd then
@@ -40,4 +54,8 @@ showDigit n
 incAll :: [[Int]] -> [[Int]]
 incAll = foldr (\p q -> (foldr (\x y -> (x+1) : y) [] p) : q) []
 
+my_factorial :: Int -> Int
+my_factorial n = foldl (*) 1 [1..n]
 
+my_concat :: [[a]] -> [a]
+my_concat = foldl (++) []
