@@ -1,0 +1,9 @@
+[submodule "tasks/interpreter"]
+	path = tasks/interpreter
+	url = git@github.com:mbalc/qwertyLang.git
+[submodule "tasks/haskell"]
+	path = tasks/haskell
+	url = git@github.com:mbalc/haskell-assignment.git
+[submodule "tasks/prolog"]
+	path = tasks/prolog
+	url = git@github.com:mbalc/prolog-efgraphs-task.git
